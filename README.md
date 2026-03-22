@@ -12,6 +12,9 @@ strawberry_project/
 ├── venv/               # Virtual environment (Git ignored)
 ├── requirements.txt    # Library dependencies
 └── README.md           # Project instructions
+```
+
+## Project Overview
 
 # Strawberry Ripeness Classification Project
 
