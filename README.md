@@ -1,3 +1,6 @@
+## Project Structure
+
+```text
 strawberry_project/
 ├── data/               # Raw and processed images (Git ignored)
 ├── src/                # All Python source codes
@@ -9,7 +12,6 @@ strawberry_project/
 ├── venv/               # Virtual environment (Git ignored)
 ├── requirements.txt    # Library dependencies
 └── README.md           # Project instructions
-
 
 # Strawberry Ripeness Classification Project
 
