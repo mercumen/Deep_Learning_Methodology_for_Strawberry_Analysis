@@ -1,0 +1,39 @@
+# --- Python environment ---
+# Ignore the virtual environment folder to keep the repo small
+venv/
+ENV/
+env/
+
+# --- Data and Large Files ---
+# Do not upload the dataset or raw images to GitHub
+data/
+*.zip
+*.tar.gz
+
+# --- Project Outputs ---
+# Ignore local experiment logs and saved model weights
+experiments/
+results/
+*.pth
+*.onnx
+
+# --- System and IDE files ---
+# Ignore operating system specific files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE specific settings (VS Code, PyCharm, etc.)
+.vscode/
+.idea/
+*.swp
+
+# --- Kaggle API ---
+# Never upload your private API credentials
+.kaggle/
+kaggle.json
+
+# --- Python Cache ---
+# Ignore compiled python files
+__pycache__/
+*.py[cod]
+*$py.class
