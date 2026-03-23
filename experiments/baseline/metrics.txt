@@ -1,0 +1,13 @@
+Epoch 1: Train Loss=1.1842, Train Acc=42.48%, Test Loss=1.1418, Test Acc=34.21%
+Epoch 2: Train Loss=1.0632, Train Acc=46.24%, Test Loss=1.0961, Test Acc=34.21%
+Epoch 3: Train Loss=1.0562, Train Acc=46.24%, Test Loss=1.0942, Test Acc=34.21%
+Epoch 4: Train Loss=1.0492, Train Acc=46.24%, Test Loss=1.0702, Test Acc=35.96%
+Epoch 5: Train Loss=1.0404, Train Acc=47.35%, Test Loss=1.1106, Test Acc=34.21%
+Epoch 6: Train Loss=1.0179, Train Acc=46.46%, Test Loss=1.1235, Test Acc=35.96%
+Epoch 7: Train Loss=1.0089, Train Acc=48.67%, Test Loss=1.0136, Test Acc=50.00%
+Epoch 8: Train Loss=0.9897, Train Acc=52.88%, Test Loss=1.1647, Test Acc=38.60%
+Epoch 9: Train Loss=0.9197, Train Acc=54.65%, Test Loss=1.1403, Test Acc=45.61%
+Epoch 10: Train Loss=0.8535, Train Acc=60.62%, Test Loss=1.0681, Test Acc=48.25%
+
+Final Test Accuracy: 48.25%
+Best Test Accuracy: 50.00%

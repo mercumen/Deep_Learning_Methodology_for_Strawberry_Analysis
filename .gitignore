@@ -12,7 +12,7 @@ data/
 
 # --- Project Outputs ---
 # Ignore local experiment logs and saved model weights
-experiments/
+#experiments/
 results/
 *.pth
 *.onnx
