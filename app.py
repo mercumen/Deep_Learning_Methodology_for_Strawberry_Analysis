@@ -5,6 +5,7 @@ from torchvision import transforms
 from PIL import Image
 import os
 
+class StrawberryCNN(nn.Module):
     def __init__(self, num_classes=3):
         super(StrawberryCNN, self).__init__()
 
@@ -28,7 +29,6 @@ import os
             nn.ReLU(),
             nn.Linear(128, num_classes)
         )
-
     def forward(self, x):
         x = self.features(x)
         x = self.classifier(x)
