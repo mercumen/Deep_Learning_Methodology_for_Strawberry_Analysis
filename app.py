@@ -5,10 +5,6 @@ from torchvision import transforms
 from PIL import Image
 import os
 
-# ============================================
-# MODEL DEFINITION (same as your model.py)
-# ============================================
-class StrawberryCNN(nn.Module):
     def __init__(self, num_classes=3):
         super(StrawberryCNN, self).__init__()
 
@@ -45,9 +41,9 @@ def load_model():
     model = StrawberryCNN(num_classes=3)
   
     possible_paths = [
-    "best_model.pth", 
+   
+    "experiments/baseline/best_model.pth",
 ]
-    
     for path in possible_paths:
         if os.path.exists(path):
             model.load_state_dict(torch.load(path, map_location="cpu"))
@@ -58,9 +54,7 @@ def load_model():
     return None, None
 
 
-# ============================================
-# IMAGE PREPROCESSING
-# ============================================
+
 transform = transforms.Compose([
     transforms.Resize((128, 128)),
     transforms.ToTensor(),
@@ -80,16 +74,14 @@ class_messages = [
 ]
 
 
-# ============================================
-# STREAMLIT UI
-# ============================================
+
 st.set_page_config(
     page_title="Strawberry Ripeness Classifier 🍓",
     page_icon="🍓",
     layout="centered"
 )
 
-# Custom CSS for cute styling
+
 st.markdown("""
 <style>
     .stApp {
@@ -125,13 +117,13 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Title
+
 st.markdown('<p class="main-title">🍓 Strawberry Ripeness Classifier 🍓</p>', unsafe_allow_html=True)
 st.markdown('<p class="subtitle">Upload a strawberry photo and I\'ll tell you if it\'s ready to eat!</p>', unsafe_allow_html=True)
 
 st.divider()
 
-# File uploader
+
 uploaded_file = st.file_uploader(
     "Choose a strawberry image...",
     type=["jpg", "jpeg", "png"],
@@ -139,21 +131,20 @@ uploaded_file = st.file_uploader(
 )
 
 if uploaded_file is not None:
-    # Display image
+   
     image = Image.open(uploaded_file)
     st.image(image, caption="Your Strawberry 🍓", width=300)
-    
-    # Analyze button
+ 
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         analyze_button = st.button("🔍 Analyze Strawberry", type="primary", use_container_width=True)
     
     if analyze_button:
         with st.spinner("🍓 Analyzing your strawberry... 🍓"):
-            # Preprocess
+           
             input_tensor = transform(image).unsqueeze(0)
             
-            # Predict
+            
             model, model_path = load_model()
             if model is not None:
                 with torch.no_grad():
@@ -165,7 +156,7 @@ if uploaded_file is not None:
         if model is not None:
             st.divider()
             
-            # Result box
+         
             emoji = class_emojis[predicted_class]
             result_text = class_names[predicted_class].upper()
             
@@ -177,11 +168,11 @@ if uploaded_file is not None:
             </div>
             """, unsafe_allow_html=True)
             
-            # Confidence bar
+            
             st.write(f"**Confidence:** {confidence:.1f}%")
             st.progress(confidence / 100)
             
-            # Show all probabilities
+            
             with st.expander("📊 See detailed analysis"):
                 for i, name in enumerate(class_names):
                     prob = probabilities[0][i].item() * 100
