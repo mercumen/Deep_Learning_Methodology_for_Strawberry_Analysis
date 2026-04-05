@@ -5,9 +5,6 @@ from torchvision import transforms
 from PIL import Image
 import os
 
-# ============================================
-# MODEL DEFINITION (same as your model.py)
-# ============================================
 class StrawberryCNN(nn.Module):
     def __init__(self, num_classes=3):
         super(StrawberryCNN, self).__init__()
@@ -39,9 +36,6 @@ class StrawberryCNN(nn.Module):
         return x
 
 
-# ============================================
-# LOAD MODEL
-# ============================================
 @st.cache_resource
 def load_model():
     model = StrawberryCNN(num_classes=3)
@@ -60,9 +54,7 @@ def load_model():
     return None, None
 
 
-# ============================================
-# IMAGE PREPROCESSING
-# ============================================
+
 transform = transforms.Compose([
     transforms.Resize((128, 128)),
     transforms.ToTensor(),
@@ -82,9 +74,7 @@ class_messages = [
 ]
 
 
-# ============================================
-# STREAMLIT UI
-# ============================================
+
 st.set_page_config(
     page_title="Strawberry Ripeness Classifier 🍓",
     page_icon="🍓",
