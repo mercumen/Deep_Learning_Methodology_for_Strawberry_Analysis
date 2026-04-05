@@ -39,15 +39,13 @@ class StrawberryCNN(nn.Module):
         return x
 
 
-# ============================================
-# LOAD MODEL
-# ============================================
+
 @st.cache_resource
 def load_model():
     model = StrawberryCNN(num_classes=3)
   
     possible_paths = [
-    r"C:\Users\beto2\OneDrive\Desktop\experiments\baseline\best_model.pth",
+    "best_model.pth", 
 ]
     
     for path in possible_paths:
