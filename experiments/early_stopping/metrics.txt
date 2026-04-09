@@ -1,1 +1,31 @@
+Training samples: 452, Validation samples: 113
+Epoch [1/10] | Train Loss: 1.3425 | Train Acc: 39.82% | Val Loss: 1.0817 | Val Acc: 46.90%
+  ✓ New best model! Val Loss: 1.0817
+Epoch [2/10] | Train Loss: 1.0749 | Train Acc: 42.92% | Val Loss: 1.0158 | Val Acc: 46.90%
+  ✓ New best model! Val Loss: 1.0158
+Epoch [3/10] | Train Loss: 1.0696 | Train Acc: 42.92% | Val Loss: 1.0366 | Val Acc: 50.44%
+  ✗ No improvement. Patience: 1/5
+Epoch [4/10] | Train Loss: 1.0527 | Train Acc: 44.91% | Val Loss: 1.0149 | Val Acc: 48.67%
+  ✓ New best model! Val Loss: 1.0149
+Epoch [5/10] | Train Loss: 1.0346 | Train Acc: 50.22% | Val Loss: 0.9779 | Val Acc: 52.21%
+  ✓ New best model! Val Loss: 0.9779
+Epoch [6/10] | Train Loss: 0.9842 | Train Acc: 51.55% | Val Loss: 0.9629 | Val Acc: 53.10%
+  ✓ New best model! Val Loss: 0.9629
+Epoch [7/10] | Train Loss: 0.9235 | Train Acc: 55.53% | Val Loss: 0.9624 | Val Acc: 53.98%
+  ✓ New best model! Val Loss: 0.9624
+Epoch [8/10] | Train Loss: 0.8379 | Train Acc: 63.94% | Val Loss: 1.0332 | Val Acc: 51.33%
+  ✗ No improvement. Patience: 1/5
+Epoch [9/10] | Train Loss: 0.6600 | Train Acc: 74.34% | Val Loss: 1.0972 | Val Acc: 50.44%
+  ✗ No improvement. Patience: 2/5
+Epoch [10/10] | Train Loss: 0.5221 | Train Acc: 80.75% | Val Loss: 1.1925 | Val Acc: 46.02%
+  ✗ No improvement. Patience: 3/5
 
+Loaded best model based on validation loss
+
+
+FINAL TEST ACCURACY: 80.80%
+
+
+Training completed.
+Best Validation Loss: 0.9624
+Final Test Accuracy: 80.80%
