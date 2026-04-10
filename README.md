@@ -1,121 +1,60 @@
-## Project Structure
-
-```text
-strawberry_project/
-├── data/               # Raw and processed images (Git ignored)
-├── src/                # All Python source codes
-│   ├── download_data.py
-│   ├── organize_data.py
-│   └── data_loader.py
-├── experiments/        # Log files and model checkpoints
-├── results/            # Performance charts and final tables
-├── venv/               # Virtual environment (Git ignored)
-├── requirements.txt    # Library dependencies
-└── README.md           # Project instructions
-```
+# Deep Learning Methodology for Strawberry Analysis
 
 ## Project Overview
+This project aims to classify strawberry ripeness levels using deep learning techniques. The main goal is to compare different methods and analyze how they affect model performance. The project focuses especially on overfitting, generalization, and performance improvement across multiple experiments.
 
-# Strawberry Ripeness Classification Project
+## Dataset
+A multi-class strawberry ripeness dataset was used in this project. The images are grouped into three classes:
+- Unripe
+- Ripe
+- Overripe
 
-This project focuses on classifying strawberries into three categories: Partially Ripe, Ripe, and Unripe. The goal is to demonstrate deep learning methodologies
+## Methods Used
+The following methods were applied and compared:
+- Baseline CNN
+- L2 Regularization
+- Dropout
+- Early Stopping
+- Data Augmentation
 
-## Prerequisites
+## Why These Methods?
+These methods were selected to improve model performance and reduce overfitting.
 
-Before starting, ensure you have Python installed on your system.
+- Baseline CNN was used as the reference model.
+- L2 Regularization was applied to make training more stable and reduce excessively large weights.
+- Dropout was tested to reduce memorization by randomly disabling neurons during training.
+- Early Stopping was used to stop training when validation performance stopped improving.
+- Data Augmentation was applied to increase data diversity and improve generalization.
 
-## Installation Steps
+## Results
+The models were compared based on test accuracy:
 
-### 1. Virtual Environment Setup
-It is mandatory to use a virtual environment to avoid library version conflicts.
-- Open your terminal in the project folder.
-- Create the environment:
-  `python -m venv venv`
-- Activate the environment:
-  - Windows: `.\venv\Scripts\activate`
-  - Mac/Linux: `source venv/bin/activate`
+- Baseline: 48.25%
+- L2: 51.75%
+- Dropout: 43.86%
+- Early Stopping: 80.80%
+- Augmentation: 69.93%
 
-### 2. Install Required Libraries
-Install all necessary dependencies using the requirements file:
-`pip install -r requirements.txt`
+## Analysis
+The results show that regularization methods affected the model in different ways.
 
-### 3. Kaggle API Configuration
-We use an automated script to fetch the dataset.
-- Go to your Kaggle account settings and click "Create New API Token".
-- Move the downloaded `kaggle.json` file to the `.kaggle` folder in your user directory:
-  - Windows: `C:\Users\<YourUsername>\.kaggle\`
-  - Mac/Linux: `~/.kaggle/`
+- The baseline model provided limited performance.
+- L2 Regularization slightly improved the results and gave a more stable training process.
+- Dropout reduced model performance, which may indicate excessive regularization.
+- Early Stopping achieved the best result by preventing overfitting and stopping training at the optimal point.
+- Data Augmentation also improved performance by helping the model generalize better.
 
-## Data Pipeline Execution
+Validation loss analysis showed that loss started to increase after certain epochs for some experiments, which indicates overfitting. Early Stopping helped reduce this problem.
 
-Follow these steps in order to prepare the dataset for training:
+## Conclusion
+Among all tested methods, Early Stopping gave the best performance. It provided the best balance between learning and generalization. Data Augmentation also produced strong results. Overall, the project showed that choosing the right regularization method can significantly improve classification performance.
 
-### Step 1: Download the Dataset
-Run the download script to fetch raw data:
-`python src/download_data.py`
-
-### Step 2: Organize and Split Data
-Since the raw data is in YOLO format, run this script to convert it into a classification format and split it (80% Train, 20% Test):
-`python src/organize_data.py`
-
-### Step 3: Verify the Data Loader
-Run the loader script to confirm that images are correctly resized to 128x128, normalized, and ready for training:
-`python src/data_loader.py`
-
-If you see the message "Test completed without errors," the data pipeline is ready for model training.
-
-## Model Training (Task 2 — Baseline CNN)
-
-After preparing the dataset, we implemented and trained a baseline Convolutional Neural Network (CNN) model for strawberry ripeness classification.
-
-### Model Architecture
-
-The model includes:
-- Convolution layers
-- ReLU activation functions
-- MaxPooling layers
-- Fully connected layers
-
-The architecture is intentionally kept simple because this task is designed as a baseline experiment without regularization.
-
-### Training Configuration
-
-- Loss Function: CrossEntropyLoss
-- Optimizer: Adam
-- Learning Rate: 0.001
-- Batch Size: 32
-- Epochs: 10
-
-### Step 4: Train the Baseline CNN
-
-Run the following command to train the baseline model:
-
-`python src/train.py`
-
-This script will:
-- train the CNN for 10 epochs
-- compute train and test loss per epoch
-- compute train and test accuracy per epoch
-- save the best model checkpoint
-- save all experiment metrics in `experiments/baseline/`
-
-### Results
-
-- Final Test Accuracy: 48.25%
-- Best Test Accuracy: 50.00%
-
-### Observations
-
-- Training accuracy increased from 42.48% to 60.62%, indicating that the model learned meaningful features from the data.
-- Test accuracy fluctuated during training and reached a maximum of 50.00%.
-- This behavior suggests limited generalization capability, which is expected for a baseline model without regularization.
-
-### Output Files
-
-All results are saved in:
-
-`experiments/baseline/`
-
-Files:
-- best_model.pth → best performing baseline model
-- metrics.txt → loss and accuracy values for each epoch
+## Project Structure
+```text
+experiments/
+results/
+src/
+.gitignore
+README.md
+app.py
+requirements.txt
