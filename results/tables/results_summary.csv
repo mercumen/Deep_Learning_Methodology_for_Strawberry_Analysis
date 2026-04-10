@@ -1,8 +1,0 @@
-method,Train Accuracy,Validation Accuracy,Test Accuracy,Final Loss,Epoch Count,Main Change
-BASELINE,60.62%,-,48.25%,0.8535,10,No regularization
-L2,96.90%,-,51.75%,0.1284,10,L2 regularization (weight decay)
-DROPOUT,66.81%,-,43.86%,0.7760,10,Dropout added
-EARLY-STOPPING,80.75%,53.98%,80.80%,0.5221,10,Early stopping
-AUGMENTATION,70.35%,61.06%,69.93%,0.7000,10,Data augmentation
-,,,,,,
-Note: Validation accuracy was only used in the early stopping and augmentation experiments.,,,,,,
